@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/zzz_home_variant"
+            android:title="@string/home"/>
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/zzz_face_profile"
+            android:title="@string/profile"/>
+        <!--<item-->
+        <!--android:id="@+id/nav_search"-->
+        <!--android:icon="@drawable/zzz_account_search"-->
+        <!--android:title="@string/search" />-->
+        <item
+            android:id="@+id/nav_scan"
+            android:icon="@drawable/zzz_nfc"
+            android:title="@string/scan"/>
+        <!--<item-->
+        <!--android:id="@+id/nav_history"-->
+        <!--android:icon="@drawable/zzz_history"-->
+        <!--android:title="@string/history_activity" />-->
+        <item
+            android:id="@+id/nav_friend_list"
+            android:icon="@drawable/zzz_account_multiple"
+            android:title="@string/friend_list"/>
+        <item
+            android:id="@+id/nav_groups"
+            android:icon="@drawable/zzz_group"
+            android:title="@string/groups"/>
+        <item
+            android:id="@+id/nav_requests"
+            android:icon="@drawable/zzz_account_circle"
+            android:title="@string/requests"
+            app:actionViewClass="android.widget.TextView"/>
+        <item
+            android:id="@+id/nav_requests_friends"
+            android:icon="@drawable/zzz_account_search"
+            android:title="@string/request_friend"/>
+    </group>
+
+    <item android:title="@string/settings">
+        <menu>
+            <item
+                android:id="@+id/nav_setting"
+
+                android:title="@string/setting"/>
+            <item
+                android:id="@+id/nav_help"
+
+                android:title="@string/help"/>
+            <item
+                android:id="@+id/nav_share"
+
+                android:title="@string/share"/>
+            <item
+                android:id="@+id/nav_logout"
+
+                android:title="@string/logout"/>
+        </menu>
+    </item>
+</menu>

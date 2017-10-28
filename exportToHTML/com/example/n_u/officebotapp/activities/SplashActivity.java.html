@@ -1,0 +1,221 @@
+<html>
+<head>
+<title>SplashActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #2b91af; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,208,208); }
+.s1 { color: rgb(208,208,208); }
+.s2 { color: rgb(208,208,208); }
+.s3 { color: rgb(255,255,0); }
+.s4 { color: rgb(220,120,220); }
+.s5 { color: rgb(0,224,0); }
+.ls0 { height: 1px; border-width: 0; color: rgb(32,32,48); background-color:rgb(32,32,48)}
+</style>
+</head>
+<BODY BGCOLOR="#101020">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+SplashActivity.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">package </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">n_u</span><span class="s2">.</span><span class="s1">officebotapp</span><span class="s2">.</span><span class="s1">activities</span><span class="s2">;</span><span class="s1"> 
+ 
+</span><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">content</span><span class="s2">.</span><span class="s1">Intent</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">graphics</span><span class="s2">.</span><span class="s1">PixelFormat</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">os</span><span class="s2">.</span><span class="s1">Bundle</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">os</span><span class="s2">.</span><span class="s1">Handler</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">support</span><span class="s2">.</span><span class="s1">annotation</span><span class="s2">.</span><span class="s1">NonNull</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">support</span><span class="s2">.</span><span class="s1">annotation</span><span class="s2">.</span><span class="s1">Nullable</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">support</span><span class="s2">.</span><span class="s1">v4</span><span class="s2">.</span><span class="s1">app</span><span class="s2">.</span><span class="s1">ActivityCompat</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">support</span><span class="s2">.</span><span class="s1">v4</span><span class="s2">.</span><span class="s1">content</span><span class="s2">.</span><span class="s1">ContextCompat</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">support</span><span class="s2">.</span><span class="s1">v7</span><span class="s2">.</span><span class="s1">app</span><span class="s2">.</span><span class="s1">AppCompatActivity</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">view</span><span class="s2">.</span><span class="s1">Window</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">view</span><span class="s2">.</span><span class="s1">animation</span><span class="s2">.</span><span class="s1">Animation</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">view</span><span class="s2">.</span><span class="s1">animation</span><span class="s2">.</span><span class="s1">AnimationUtils</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">widget</span><span class="s2">.</span><span class="s1">RelativeLayout</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">widget</span><span class="s2">.</span><span class="s1">Toast</span><span class="s2">;</span><span class="s1"> 
+ 
+</span><span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">n_u</span><span class="s2">.</span><span class="s1">officebotapp</span><span class="s2">.</span><span class="s1">R</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">n_u</span><span class="s2">.</span><span class="s1">officebotapp</span><span class="s2">.</span><span class="s1">intefaces</span><span class="s2">.</span><span class="s1">IUsers</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">n_u</span><span class="s2">.</span><span class="s1">officebotapp</span><span class="s2">.</span><span class="s1">models</span><span class="s2">.</span><span class="s1">Status</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">n_u</span><span class="s2">.</span><span class="s1">officebotapp</span><span class="s2">.</span><span class="s1">services</span><span class="s2">.</span><span class="s1">TokenService</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">n_u</span><span class="s2">.</span><span class="s1">officebotapp</span><span class="s2">.</span><span class="s1">utils</span><span class="s2">.</span><span class="s1">AppLog</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">n_u</span><span class="s2">.</span><span class="s1">officebotapp</span><span class="s2">.</span><span class="s1">utils</span><span class="s2">.</span><span class="s1">OBSession</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">n_u</span><span class="s2">.</span><span class="s1">officebotapp</span><span class="s2">.</span><span class="s1">utils</span><span class="s2">.</span><span class="s1">OfficeBotURI</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">google</span><span class="s2">.</span><span class="s1">firebase</span><span class="s2">.</span><span class="s1">iid</span><span class="s2">.</span><span class="s1">FirebaseInstanceId</span><span class="s2">;</span><span class="s1"> 
+ 
+</span><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Arrays</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">HashMap</span><span class="s2">;</span><span class="s1"> 
+ 
+</span><span class="s0">import </span><span class="s1">de</span><span class="s2">.</span><span class="s1">hdodenhof</span><span class="s2">.</span><span class="s1">circleimageview</span><span class="s2">.</span><span class="s1">CircleImageView</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">retrofit2</span><span class="s2">.</span><span class="s1">Call</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">retrofit2</span><span class="s2">.</span><span class="s1">Callback</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">retrofit2</span><span class="s2">.</span><span class="s1">Response</span><span class="s2">;</span><span class="s1"> 
+ 
+</span><span class="s0">public class </span><span class="s1">SplashActivity 
+        </span><span class="s0">extends </span><span class="s1">AppCompatActivity </span><span class="s2">{</span><span class="s1"> 
+    </span><span class="s0">public static final int </span><span class="s1">MY_PERMISSIONS_REQUEST </span><span class="s2">= </span><span class="s3">1</span><span class="s2">;</span><span class="s1"> 
+ <hr class="ls0">    </span><span class="s0">public void </span><span class="s1">onAttachedToWindow</span><span class="s2">() {</span><span class="s1"> 
+        </span><span class="s0">super</span><span class="s2">.</span><span class="s1">onAttachedToWindow</span><span class="s2">();</span><span class="s1"> 
+        Window window </span><span class="s2">= </span><span class="s1">getWindow</span><span class="s2">();</span><span class="s1"> 
+        window</span><span class="s2">.</span><span class="s1">setFormat</span><span class="s2">(</span><span class="s1">PixelFormat</span><span class="s2">.</span><span class="s1">RGBA_8888</span><span class="s2">);</span><span class="s1"> 
+    </span><span class="s2">}</span><span class="s1"> 
+ <hr class="ls0">    </span><span class="s0">private void </span><span class="s1">StartAnimations</span><span class="s2">() {</span><span class="s1"> 
+        Animation anim </span><span class="s2">= </span><span class="s1">AnimationUtils</span><span class="s2">.</span><span class="s1">loadAnimation</span><span class="s2">(</span><span class="s0">this</span><span class="s2">, </span><span class="s1">R</span><span class="s2">.</span><span class="s1">anim</span><span class="s2">.</span><span class="s1">alpha</span><span class="s2">);</span><span class="s1"> 
+        anim</span><span class="s2">.</span><span class="s1">reset</span><span class="s2">();</span><span class="s1"> 
+        RelativeLayout l </span><span class="s2">= (</span><span class="s1">RelativeLayout</span><span class="s2">) </span><span class="s1">findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">splash_parent</span><span class="s2">);</span><span class="s1"> 
+        l</span><span class="s2">.</span><span class="s1">clearAnimation</span><span class="s2">();</span><span class="s1"> 
+        l</span><span class="s2">.</span><span class="s1">startAnimation</span><span class="s2">(</span><span class="s1">anim</span><span class="s2">);</span><span class="s1"> 
+        anim </span><span class="s2">= </span><span class="s1">AnimationUtils</span><span class="s2">.</span><span class="s1">loadAnimation</span><span class="s2">(</span><span class="s0">this</span><span class="s2">, </span><span class="s1">R</span><span class="s2">.</span><span class="s1">anim</span><span class="s2">.</span><span class="s1">translate</span><span class="s2">);</span><span class="s1"> 
+        anim</span><span class="s2">.</span><span class="s1">reset</span><span class="s2">();</span><span class="s1"> 
+        CircleImageView iv </span><span class="s2">= (</span><span class="s1">CircleImageView</span><span class="s2">) </span><span class="s1">findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">splash_image</span><span class="s2">);</span><span class="s1"> 
+        iv</span><span class="s2">.</span><span class="s1">clearAnimation</span><span class="s2">();</span><span class="s1"> 
+        iv</span><span class="s2">.</span><span class="s1">startAnimation</span><span class="s2">(</span><span class="s1">anim</span><span class="s2">);</span><span class="s1"> 
+        </span><span class="s0">if </span><span class="s2">(</span><span class="s1">ContextCompat</span><span class="s2">.</span><span class="s1">checkSelfPermission</span><span class="s2">(</span><span class="s0">this</span><span class="s2">,</span><span class="s1"> 
+                </span><span class="s4">&quot;android.permission.READ_CONTACTS&quot;</span><span class="s2">) != </span><span class="s3">0</span><span class="s2">) {</span><span class="s1"> 
+            ActivityCompat</span><span class="s2">.</span><span class="s1">requestPermissions</span><span class="s2">(</span><span class="s0">this</span><span class="s2">,</span><span class="s1"> 
+                    </span><span class="s0">new </span><span class="s1">String</span><span class="s2">[]{</span><span class="s4">&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</span><span class="s2">,</span><span class="s1"> 
+                            </span><span class="s4">&quot;android.permission.RECORD_AUDIO&quot;</span><span class="s2">,</span><span class="s1"> 
+                            </span><span class="s4">&quot;android.permission.NFC&quot;</span><span class="s2">,</span><span class="s1"> 
+                            </span><span class="s4">&quot;android.permission.GET_ACCOUNTS&quot;</span><span class="s2">,</span><span class="s1"> 
+                            </span><span class="s4">&quot;android.permission.VIBRATE&quot;</span><span class="s2">}, </span><span class="s1">MY_PERMISSIONS_REQUEST</span><span class="s2">);</span><span class="s1"> 
+        </span><span class="s2">}</span><span class="s1"> 
+ 
+    </span><span class="s2">}</span><span class="s1"> 
+ <hr class="ls0">    @Override 
+    </span><span class="s0">protected void </span><span class="s1">onCreate</span><span class="s2">(</span><span class="s1">@Nullable Bundle savedInstanceState</span><span class="s2">) {</span><span class="s1"> 
+        </span><span class="s0">super</span><span class="s2">.</span><span class="s1">onCreate</span><span class="s2">(</span><span class="s1">savedInstanceState</span><span class="s2">);</span><span class="s1"> 
+        setContentView</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">layout</span><span class="s2">.</span><span class="s1">activity_splash</span><span class="s2">);</span><span class="s1"> 
+        StartAnimations</span><span class="s2">();</span><span class="s1"> 
+ 
+    </span><span class="s2">}</span><span class="s1"> 
+ 
+    </span><span class="s5">//    protected void onCreate(Bundle savedInstanceState) {</span><span class="s1"> 
+</span><span class="s5">//        super.onCreate(savedInstanceState);</span><span class="s1"> 
+</span><span class="s5">//        setContentView(R.layout.activity_splash);</span><span class="s1"> 
+</span><span class="s5">//        if (ContextCompat.checkSelfPermission(this,</span><span class="s1"> 
+</span><span class="s5">//                &quot;android.permission.READ_CONTACTS&quot;) != 0) {</span><span class="s1"> 
+</span><span class="s5">//            ActivityCompat.requestPermissions(this,</span><span class="s1"> 
+</span><span class="s5">//                    new String[]{&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;,</span><span class="s1"> 
+</span><span class="s5">//                            &quot;android.permission.RECORD_AUDIO&quot;,</span><span class="s1"> 
+</span><span class="s5">//                            &quot;android.permission.NFC&quot;,</span><span class="s1"> 
+</span><span class="s5">//                            &quot;android.permission.GET_ACCOUNTS&quot;,</span><span class="s1"> 
+</span><span class="s5">//                            &quot;android.permission.VIBRATE&quot;}, MY_PERMISSIONS_REQUEST);</span><span class="s1"> 
+</span><span class="s5">//        }</span><span class="s1"> 
+</span><span class="s5">//    }</span><span class="s1"> 
+ 
+ 
+</span><span class="s5">//    @Override</span><span class="s1"> 
+</span><span class="s5">//    public void onWindowFocusChanged(boolean hasFocus) {</span><span class="s1"> 
+</span><span class="s5">//        super.onWindowFocusChanged(false);</span><span class="s1"> 
+</span><span class="s5">//    }</span><span class="s1"> 
+</span><span class="s5">//</span><span class="s1"> 
+</span><span class="s5">//    @Override</span><span class="s1"> 
+</span><span class="s5">//    public void initSplash(ConfigSplash configSplash) {</span><span class="s1"> 
+</span><span class="s5">//</span><span class="s1"> 
+</span><span class="s5">//   /* you don't have to override every property */</span><span class="s1"> 
+</span><span class="s5">//        //Customize Circular Reveal</span><span class="s1"> 
+</span><span class="s5">//        configSplash.setBackgroundColor(R.color.colorPrimary); //any color you want form colors.xml</span><span class="s1"> 
+</span><span class="s5">//        configSplash.setAnimCircularRevealDuration(800); //int ms</span><span class="s1"> 
+</span><span class="s5">//        configSplash.setRevealFlagX(Flags.REVEAL_LEFT);  //or Flags.REVEAL_LEFT</span><span class="s1"> 
+</span><span class="s5">//        configSplash.setRevealFlagY(Flags.REVEAL_TOP); //or Flags.REVEAL_TOP</span><span class="s1"> 
+</span><span class="s5">//</span><span class="s1"> 
+</span><span class="s5">////        //Choose LOGO OR PATH; if you don't provide String value for path it's logo by default</span><span class="s1"> 
+</span><span class="s5">////</span><span class="s1"> 
+</span><span class="s5">////        //Customize Logo</span><span class="s1"> 
+</span><span class="s5">////        configSplash.setLogoSplash(R.mipmap.ic_launcher); //or any other drawable</span><span class="s1"> 
+</span><span class="s5">////        configSplash.setAnimLogoSplashDuration(700); //int ms</span><span class="s1"> 
+</span><span class="s5">////        configSplash.setAnimLogoSplashTechnique(Techniques.Bounce); //choose one form Techniques (ref: https://github.com/daimajia/AndroidViewAnimations)</span><span class="s1"> 
+</span><span class="s5">////</span><span class="s1"> 
+</span><span class="s5">////</span><span class="s1"> 
+</span><span class="s5">////        //Customize Path</span><span class="s1"> 
+</span><span class="s5">////        configSplash.setPathSplash(AppLog.APP_TAG); //set path String</span><span class="s1"> 
+</span><span class="s5">////        configSplash.setOriginalHeight(400); //in relation to your svg (path) resource</span><span class="s1"> 
+</span><span class="s5">////        configSplash.setOriginalWidth(400); //in relation to your svg (path) resource</span><span class="s1"> 
+</span><span class="s5">////        configSplash.setAnimPathStrokeDrawingDuration(800);</span><span class="s1"> 
+</span><span class="s5">////        configSplash.setPathSplashStrokeSize(3); //I advise value be &lt;5</span><span class="s1"> 
+</span><span class="s5">////        configSplash.setPathSplashStrokeColor(R.color.colorAccent); //any color you want form colors.xml</span><span class="s1"> 
+</span><span class="s5">////        configSplash.setAnimPathFillingDuration(3000);</span><span class="s1"> 
+</span><span class="s5">////        configSplash.setPathSplashFillColor(R.color.colorPrimaryDark); //path object filling color</span><span class="s1"> 
+</span><span class="s5">////</span><span class="s1"> 
+</span><span class="s5">////</span><span class="s1"> 
+</span><span class="s5">////        //Customize Title</span><span class="s1"> 
+</span><span class="s5">////        configSplash.setTitleSplash(&quot;My Awesome App&quot;);</span><span class="s1"> 
+</span><span class="s5">////        configSplash.setTitleTextColor(android.R.color.primary_text_light);</span><span class="s1"> 
+</span><span class="s5">////        configSplash.setTitleTextSize(30f); //float value</span><span class="s1"> 
+</span><span class="s5">////        configSplash.setAnimTitleDuration(900);</span><span class="s1"> 
+</span><span class="s5">////        configSplash.setAnimTitleTechnique(Techniques.FlipInX);</span><span class="s1"> 
+</span><span class="s5">//</span><span class="s1"> 
+</span><span class="s5">////        configSplash.setTitleFont(&quot;fonts/myfont.ttf&quot;); //provide string to your font located in assets/fonts/</span><span class="s1"> 
+</span><span class="s5">//</span><span class="s1"> 
+</span><span class="s5">//    }</span><span class="s1"> 
+ 
+</span><span class="s5">//    @Override</span><span class="s1"> 
+</span><span class="s5">//    public void animationsFinished() {</span><span class="s1"> 
+</span><span class="s5">//        if (ContextCompat.checkSelfPermission(this,</span><span class="s1"> 
+</span><span class="s5">//                &quot;android.permission.READ_CONTACTS&quot;) != 0) {</span><span class="s1"> 
+</span><span class="s5">//            ActivityCompat.requestPermissions(this,</span><span class="s1"> 
+</span><span class="s5">//                    new String[]{&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;,</span><span class="s1"> 
+</span><span class="s5">//                            &quot;android.permission.RECORD_AUDIO&quot;,</span><span class="s1"> 
+</span><span class="s5">//                            &quot;android.permission.NFC&quot;,</span><span class="s1"> 
+</span><span class="s5">//                            &quot;android.permission.GET_ACCOUNTS&quot;,</span><span class="s1"> 
+</span><span class="s5">//                            &quot;android.permission.VIBRATE&quot;}, MY_PERMISSIONS_REQUEST);</span><span class="s1"> 
+</span><span class="s5">//        }</span><span class="s1"> 
+</span><span class="s5">//        //transit to another activity here</span><span class="s1"> 
+</span><span class="s5">//        //or do whatever you want</span><span class="s1"> 
+</span><span class="s5">//    }</span><span class="s1"> 
+ <hr class="ls0">    </span><span class="s0">public void </span><span class="s1">onRequestPermissionsResult</span><span class="s2">(</span><span class="s0">int </span><span class="s1">i</span><span class="s2">,</span><span class="s1"> 
+                                           @NonNull String</span><span class="s2">[] </span><span class="s1">permissions</span><span class="s2">,</span><span class="s1"> 
+                                           @NonNull </span><span class="s0">int</span><span class="s2">[] </span><span class="s1">arrayOfInt</span><span class="s2">) {</span><span class="s1"> 
+        </span><span class="s0">if </span><span class="s2">(</span><span class="s1">i </span><span class="s2">== </span><span class="s1">MY_PERMISSIONS_REQUEST</span><span class="s2">) {</span><span class="s1"> 
+            AppLog</span><span class="s2">.</span><span class="s1">logString</span><span class="s2">(</span><span class="s1">Arrays</span><span class="s2">.</span><span class="s1">toString</span><span class="s2">(</span><span class="s1">arrayOfInt</span><span class="s2">));</span><span class="s1"> 
+            AppLog</span><span class="s2">.</span><span class="s1">logString</span><span class="s2">(</span><span class="s1">Arrays</span><span class="s2">.</span><span class="s1">toString</span><span class="s2">(</span><span class="s1">permissions</span><span class="s2">));</span><span class="s1"> 
+            </span><span class="s0">if </span><span class="s2">((</span><span class="s1">permissions</span><span class="s2">.</span><span class="s1">length </span><span class="s2">&gt; </span><span class="s3">0 </span><span class="s2">&amp;&amp; </span><span class="s1">permissions</span><span class="s2">.</span><span class="s1">length </span><span class="s2">== </span><span class="s3">5</span><span class="s2">) &amp;&amp; (</span><span class="s1">arrayOfInt</span><span class="s2">[</span><span class="s3">0</span><span class="s2">] == </span><span class="s3">0</span><span class="s2">)) {</span><span class="s1"> 
+                </span><span class="s0">new </span><span class="s1">Handler</span><span class="s2">().</span><span class="s1">postDelayed</span><span class="s2">(</span><span class="s0">new </span><span class="s1">Runnable</span><span class="s2">() {</span><span class="s1"> 
+                    </span><span class="s0">public void </span><span class="s1">run</span><span class="s2">() {</span><span class="s1"> 
+                        Object localObject </span><span class="s2">= </span><span class="s1">LoginActivity</span><span class="s2">.</span><span class="s0">class</span><span class="s2">;</span><span class="s1"> 
+                        </span><span class="s0">if </span><span class="s2">(</span><span class="s1">OBSession</span><span class="s2">.</span><span class="s1">hasPreference</span><span class="s2">(</span><span class="s1">getString</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">string</span><span class="s2">.</span><span class="s1">user_data_key</span><span class="s2">),</span><span class="s1"> 
+                                getApplicationContext</span><span class="s2">())) {</span><span class="s1"> 
+                            localObject </span><span class="s2">= </span><span class="s1">ProfileTagActivity</span><span class="s2">.</span><span class="s0">class</span><span class="s2">;</span><span class="s1"> 
+                        </span><span class="s2">}</span><span class="s1"> 
+                        localObject </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Intent</span><span class="s2">(</span><span class="s1">SplashActivity</span><span class="s2">.</span><span class="s0">this</span><span class="s2">, (</span><span class="s1">Class</span><span class="s2">) </span><span class="s1">localObject</span><span class="s2">);</span><span class="s1"> 
+                        </span><span class="s0">final </span><span class="s1">IUsers iUsers </span><span class="s2">= </span><span class="s1">OfficeBotURI</span><span class="s2">.</span><span class="s1">retrofit</span><span class="s2">().</span><span class="s1">create</span><span class="s2">(</span><span class="s1">IUsers</span><span class="s2">.</span><span class="s0">class</span><span class="s2">);</span><span class="s1"> 
+                        HashMap</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">, </span><span class="s1">Object</span><span class="s2">&gt; </span><span class="s1">map </span><span class="s2">= </span><span class="s0">new </span><span class="s1">HashMap</span><span class="s2">&lt;&gt;();</span><span class="s1"> 
+                        map</span><span class="s2">.</span><span class="s1">put</span><span class="s2">(</span><span class="s4">&quot;device_id&quot;</span><span class="s2">, </span><span class="s1">FirebaseInstanceId</span><span class="s2">.</span><span class="s1">getInstance</span><span class="s2">().</span><span class="s1">getToken</span><span class="s2">());</span><span class="s1"> 
+                        AppLog</span><span class="s2">.</span><span class="s1">logString</span><span class="s2">(</span><span class="s1">FirebaseInstanceId</span><span class="s2">.</span><span class="s1">getInstance</span><span class="s2">().</span><span class="s1">getToken</span><span class="s2">());</span><span class="s1"> 
+                        Call</span><span class="s2">&lt;</span><span class="s1">Status</span><span class="s2">&gt; </span><span class="s1">call </span><span class="s2">= </span><span class="s1">iUsers</span><span class="s2">.</span><span class="s1">deviceId</span><span class="s2">(</span><span class="s1">map</span><span class="s2">, </span><span class="s1">OBSession</span><span class="s2">.</span><span class="s1">getPreference</span><span class="s2">(</span><span class="s4">&quot;id&quot;</span><span class="s2">, </span><span class="s1">getApplicationContext</span><span class="s2">()));</span><span class="s1"> 
+</span><span class="s5">//                        OBSession.putPreference(&quot;token_device&quot;, token, getApplicationContext());</span><span class="s1"> 
+                        call</span><span class="s2">.</span><span class="s1">enqueue</span><span class="s2">(</span><span class="s0">new </span><span class="s1">Callback</span><span class="s2">&lt;</span><span class="s1">Status</span><span class="s2">&gt;() {</span><span class="s1"> 
+                            @Override 
+                            </span><span class="s0">public void </span><span class="s1">onResponse</span><span class="s2">(</span><span class="s1">Call</span><span class="s2">&lt;</span><span class="s1">Status</span><span class="s2">&gt; </span><span class="s1">call</span><span class="s2">, </span><span class="s1">Response</span><span class="s2">&lt;</span><span class="s1">Status</span><span class="s2">&gt; </span><span class="s1">response</span><span class="s2">) {</span><span class="s1"> 
+                                </span><span class="s0">if </span><span class="s2">(</span><span class="s1">response</span><span class="s2">.</span><span class="s1">code</span><span class="s2">() == </span><span class="s3">200</span><span class="s2">) {</span><span class="s1"> 
+                                    AppLog</span><span class="s2">.</span><span class="s1">logString</span><span class="s2">(</span><span class="s1">response</span><span class="s2">.</span><span class="s1">body</span><span class="s2">().</span><span class="s1">toString</span><span class="s2">());</span><span class="s1"> 
+                                    AppLog</span><span class="s2">.</span><span class="s1">logString</span><span class="s2">(</span><span class="s4">&quot;Seccuess&quot;</span><span class="s2">);</span><span class="s1"> 
+                                </span><span class="s2">} </span><span class="s0">else </span><span class="s1">AppLog</span><span class="s2">.</span><span class="s1">logString</span><span class="s2">(</span><span class="s4">&quot;Fail&quot;</span><span class="s2">);</span><span class="s1"> 
+                            </span><span class="s2">}</span><span class="s1"> 
+ 
+                            @Override 
+                            </span><span class="s0">public void </span><span class="s1">onFailure</span><span class="s2">(</span><span class="s1">Call</span><span class="s2">&lt;</span><span class="s1">Status</span><span class="s2">&gt; </span><span class="s1">call</span><span class="s2">, </span><span class="s1">Throwable t</span><span class="s2">) {</span><span class="s1"> 
+                                AppLog</span><span class="s2">.</span><span class="s1">logString</span><span class="s2">(</span><span class="s1">t</span><span class="s2">.</span><span class="s1">getMessage</span><span class="s2">());</span><span class="s1"> 
+                            </span><span class="s2">}</span><span class="s1"> 
+                        </span><span class="s2">});</span><span class="s1"> 
+                        startService</span><span class="s2">(</span><span class="s0">new </span><span class="s1">Intent</span><span class="s2">(</span><span class="s1">SplashActivity</span><span class="s2">.</span><span class="s0">this</span><span class="s1"> 
+                                </span><span class="s2">, </span><span class="s1">TokenService</span><span class="s2">.</span><span class="s0">class</span><span class="s2">));</span><span class="s1"> 
+                        startActivity</span><span class="s2">((</span><span class="s1">Intent</span><span class="s2">) </span><span class="s1">localObject</span><span class="s2">);</span><span class="s1"> 
+                        finish</span><span class="s2">();</span><span class="s1"> 
+                    </span><span class="s2">}</span><span class="s1"> 
+                </span><span class="s2">}, </span><span class="s3">1500</span><span class="s2">);</span><span class="s1"> 
+                AppLog</span><span class="s2">.</span><span class="s1">setVibrate</span><span class="s2">(</span><span class="s0">this</span><span class="s2">, </span><span class="s1">AppLog</span><span class="s2">.</span><span class="s1">INTENSITY_MIDDLE</span><span class="s2">);</span><span class="s1"> 
+            </span><span class="s2">}</span><span class="s1"> 
+        </span><span class="s2">} </span><span class="s0">else </span><span class="s2">{</span><span class="s1"> 
+            Toast</span><span class="s2">.</span><span class="s1">makeText</span><span class="s2">(</span><span class="s0">this</span><span class="s2">, </span><span class="s1">R</span><span class="s2">.</span><span class="s1">string</span><span class="s2">.</span><span class="s1">permission_mobile</span><span class="s2">, </span><span class="s1">Toast</span><span class="s2">.</span><span class="s1">LENGTH_SHORT</span><span class="s2">).</span><span class="s1">show</span><span class="s2">();</span><span class="s1"> 
+            finish</span><span class="s2">();</span><span class="s1"> 
+        </span><span class="s2">}</span><span class="s1"> 
+ 
+    </span><span class="s2">}</span><span class="s1"> 
+</span><span class="s2">}</span><span class="s1"> 
+</span></pre>
+</body>
+</html>

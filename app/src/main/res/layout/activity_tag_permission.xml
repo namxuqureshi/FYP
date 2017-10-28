@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_tag_permission"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <include
+        android:id="@+id/nav"
+        layout="@layout/nav_bar_code" />
+
+    <TableLayout
+        android:id="@+id/tbl"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nav">
+
+        <TableRow
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <TableRow android:layout_weight="1.0">
+
+                <Button
+                    android:id="@+id/tag_permission_public"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20.0dip"
+                    android:text="@string/public_permission"
+                    android:textSize="20.0sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow android:layout_weight="1.0">
+
+                <RadioButton
+                    android:id="@+id/checked_none_public"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="true"
+                    android:hint="@string/n" />
+
+                <RadioButton
+                    android:id="@+id/checked_r_public"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/r" />
+
+                <RadioButton
+                    android:id="@+id/checked_r_w_public"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/r_w" />
+            </TableRow>
+        </TableRow>
+
+        <TableRow
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <TableRow android:layout_weight="1.0">
+
+                <CheckBox
+                    android:id="@+id/tag_permission_friend"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20.0dip"
+                    android:text="@string/user"
+                    android:textSize="20.0sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tag_friend_select_list"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20.0dip"
+                    android:drawableEnd="@drawable/zzz_arrow_right_bold"
+                    android:onClick="onClick"
+                    android:textSize="20.0sp"
+                    android:textStyle="bold" />
+            </TableRow>
+        </TableRow>
+
+        <TableRow
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <TableRow android:layout_weight="1.0">
+
+                <CheckBox
+                    android:id="@+id/tag_permission_group"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20.0dip"
+                    android:text="@string/group"
+                    android:textSize="20.0sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tag_group_select_list"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20.0dip"
+                    android:drawableEnd="@drawable/zzz_arrow_right_bold"
+                    android:onClick="onClick"
+                    android:textSize="20.0sp"
+                    android:textStyle="bold" />
+            </TableRow>
+        </TableRow>
+    </TableLayout>
+
+    <android.widget.Button
+        android:id="@+id/go_permission_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="50.0dip"
+        android:background="@drawable/round_button"
+        android:onClick="setPermissionTag"
+        android:text="@string/go_btn" />
+
+    <android.widget.Button
+        android:id="@+id/cancel_permission_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="50.0dip"
+        android:background="@drawable/round_button"
+        android:onClick="cancelPermission"
+        android:text="@string/cancel_btn" />
+</RelativeLayout>

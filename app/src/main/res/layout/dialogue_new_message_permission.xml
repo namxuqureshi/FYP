@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialogue_permission"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/llbs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <android.widget.Button
+            android:id="@+id/btn_share_with"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/round_button"
+            android:drawableStart="@drawable/zzz_share"
+            android:gravity="center"
+            android:text="@string/share_with"
+            android:textAlignment="center"
+            android:textSize="16.0sp" />
+
+        <CheckBox
+            android:id="@+id/share_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="checked"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llbc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llbs"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <android.widget.Button
+            android:id="@+id/btn_do_not_share_with"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/round_button"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/zzz_no"
+            android:gravity="center"
+            android:text="@string/don_t_share_with"
+            android:textAlignment="center"
+            android:textSize="16.0sp" />
+
+        <CheckBox
+            android:id="@+id/d_share_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="checked"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</RelativeLayout>

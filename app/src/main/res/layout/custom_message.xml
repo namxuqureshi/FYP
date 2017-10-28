@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/msg_parent_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="76.0dip"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:padding="9dip">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="50.0dip"
+            android:layout_height="50.0dip"
+            android:src="@drawable/profile_pic_default"/>
+
+        <TextView
+            android:id="@+id/message_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="14.0dip"
+            android:layout_toEndOf="@+id/profile_image"
+            android:layout_toStartOf="@+id/tag_message_time"
+            android:fontFamily="@string/title_activity_tag"
+            android:text="@string/office"
+            android:textAllCaps="true"
+            android:textSize="16.0sp"
+            android:textStyle="normal|bold"/>
+
+        <TextView
+            android:id="@+id/tag_message_content"
+            android:layout_width="wrap_content"
+            android:layout_height="20.0dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/message_user"
+            android:fontFamily="@string/title_activity_tag"
+            android:text="Whats app boy and whats on ........"
+            android:textAllCaps="true"
+            android:textSize="12.0sp"
+            android:textStyle="normal"/>
+
+        <TextView
+            android:id="@+id/tag_message_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:fontFamily="@string/title_activity_tag"
+            android:text="@string/yesterday"
+            android:textAllCaps="true"
+            android:textSize="12.0sp"
+            android:textStyle="normal"/>
+
+        <TextView
+            android:id="@+id/total_reply"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_above="@id/tag_name"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/tag_message_time"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/circle"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="13sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tag_del_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/total_reply"
+            android:background="@drawable/zzz_delete_forever"
+            android:padding="4dp"/>
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_new_message"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="@string/write_message"
+            android:labelFor="@+id/edit_text_content_message"
+            app:hintAnimationEnabled="true"
+            app:hintEnabled="true">
+
+            <EditText
+                android:id="@+id/edit_text_content_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ellipsize="start"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="textLongMessage|textAutoCorrect|textMultiLine"
+                android:lines="3"
+                android:maxLines="20"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/text_time_out"
+                style="@style/AppIntroButtonStyleCompat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:drawableStart="@drawable/zzz_timelapse"
+                android:onClick="setTimeOut"
+                android:text="@string/timeout"
+                android:textAllCaps="true"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/timeout_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/text_attach_file"
+                style="@style/AppIntroButtonStyleCompat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:drawableStart="@drawable/zzz_attachment"
+                android:gravity="center"
+                android:onClick="setAttachFile"
+                android:text="@string/attach_file"
+                android:textAllCaps="true"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/attach_file_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:weightSum="2.0">
+
+                <Button
+                    android:id="@+id/btn_audio_source"
+                    style="@style/AppIntroButtonStyleCompat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1.0"
+                    android:drawableStart="@drawable/zzz_microphone_dots"
+                    android:gravity="center"
+                    android:text="@string/record_audio"
+                    android:textAllCaps="true"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"/>
+
+                <RelativeLayout
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content">
+
+                    <com.dewarder.holdinglibrary.HoldingButtonLayout
+                        android:id="@+id/input_holder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:hbl_cancel_icon="@drawable/ic_close_black_24dp"
+                        app:hbl_color="@color/colorAccent"
+                        app:hbl_holding_view="@+id/start_record"
+                        app:hbl_icon="@drawable/ic_mic_black_24dp"
+                        app:hbl_radius="40dp"
+                        app:hbl_second_radius="8dp">
+
+                        <LinearLayout
+                            android:id="@+id/slide_to_cancel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|start"
+                            android:layout_marginEnd="96dp"
+                            android:layout_marginRight="96dp"
+                            android:gravity="center_vertical"
+                            android:visibility="invisible">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginRight="8dp"
+                                android:contentDescription="@string/arrowkey"
+                                android:scaleType="center"
+                                android:src="@drawable/zzz_keyboard_backspace"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/slide_to_cancel"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:gravity="center"
+                            android:minHeight="48dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/start_record"
+                                style="@style/AppIntroButtonStyleCompat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:contentDescription="@string/record"
+                                android:drawableLeft="@drawable/zzz_microphone_dots"
+                                android:gravity="center"
+                                android:scaleType="center"
+                                android:text="@string/record_audio"
+                                android:textAllCaps="true"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                />
+
+                        </LinearLayout>
+
+                    </com.dewarder.holdinglibrary.HoldingButtonLayout>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/btn_play_audio"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/zzz_microphone"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/audio_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/text_add_permission"
+                style="@style/AppIntroButtonStyleCompat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:drawableStart="@drawable/zzz_person_box"
+                android:gravity="center"
+                android:text="@string/who_would_see_this"
+                android:textAllCaps="true"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/permission_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/_00_00_00"
+            android:visibility="invisible"/>
+
+        <LinearLayout
+            android:id="@+id/btn_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <android.widget.Button
+                android:id="@+id/btn_cancel_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/round_button"
+                android:drawableStart="@drawable/zzz_cancel"
+                android:text="@string/cancel_btn"/>
+
+            <android.widget.Button
+                android:id="@+id/btn_go_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/round_button"
+                android:drawableStart="@drawable/zzz_send"
+                android:onClick="sendMsg"
+                android:text="@string/go_btn"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

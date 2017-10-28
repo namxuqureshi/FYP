@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:fab="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/activity_message_main"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <!--android:background="@color/colorPrimaryDark"-->
+        <!--android:theme="@style/AppTheme.AppBarOverlay"-->
+
+        <include layout="@layout/nav_bar_code"/>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/child_card_group"
+        android:layout_width="300.0dip"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:backgroundTint="@color/backMsg"
+        tools:targetApi="lollipop">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginStart="5.0dip"
+            android:paddingBottom="2.0dip"
+            android:paddingTop="2.0dip">
+
+            <TextView
+                android:id="@+id/message_owner_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@string/title_activity_tag"
+                android:text="@string/msg_owner_name"
+                android:textAllCaps="true"
+                android:textSize="14.0sp"/>
+            <!--android:textColor="@color/colorPrimaryDark"-->
+
+            <TextView
+                android:id="@+id/message_main_time"
+                android:layout_width="wrap_content"
+                android:layout_height="25.0dip"
+                android:layout_alignBaseline="@id/message_owner_name"
+                android:layout_alignBottom="@id/message_owner_name"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10.0dip"
+                android:fontFamily="@string/title_activity_tag"
+                android:text="@string/time_stamp"
+                android:textSize="14.0sp"/>
+            <!--android:textColor="@color/colorPrimary"-->
+
+            <TextView
+                android:id="@+id/message_main_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/message_owner_name"
+                android:layout_marginEnd="5.0dip"
+                android:layout_marginTop="6.0dip"
+                android:fontFamily="@string/title_activity_tag"
+                android:text="@string/msg_content"
+                android:textColor="#ff000000"
+                android:textSize="14.0sp"/>
+
+            <TextView
+                android:id="@+id/message_main_view_by"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/message_main_content"
+                android:layout_marginEnd="5.0dip"
+                android:fontFamily="@string/title_activity_tag"
+                android:text="@string/seen_by"
+                android:textSize="12.0sp"/>
+
+            <FrameLayout
+                android:id="@+id/frame_audio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/message_main_content"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/audio_source_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2.0dip"
+                    android:padding="2.0dip"
+                    android:src="@drawable/zzz_microphone"/>
+
+                <ProgressBar
+                    android:id="@+id/audio_progress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="30.0dip"
+                    android:layout_height="30.0dip"
+                    android:max="100"
+                    android:progress="1"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frame_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/message_main_content"
+                android:layout_toEndOf="@id/frame_audio"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/file_source_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2.0dip"
+                    android:padding="2.0dip"
+                    android:src="@drawable/zzz_file_powerpoint"/>
+
+                <ProgressBar
+                    android:id="@+id/other_file_progress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="30.0dip"
+                    android:layout_height="30.0dip"
+                    android:indeterminate="false"
+                    android:max="100"
+                    android:progress="1"/>
+            </FrameLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <Button
+        android:id="@+id/refresh_reply"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/linearLayout"
+        android:layout_margin="20dp"
+        android:background="@drawable/zzz_refresh"
+        android:gravity="center"
+        android:textSize="12sp"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/reply_list_refresh_list"
+        android:layout_width="300.0dip"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/input_holder"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/child_card_group"
+        android:layout_marginTop="8.0dip">
+
+        <ListView
+            android:id="@+id/reply_list"
+            android:layout_width="300.0dip"
+            android:layout_height="match_parent"
+            android:stackFromBottom="true"
+            android:transcriptMode="alwaysScroll"/>
+
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:id="@+id/empty_view_text_reply_below"
+        android:layout_width="300.0dip"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="@string/no_reply"
+        android:textAlignment="center"
+        android:textSize="25.0sp"
+        android:textStyle="bold|italic"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/reply_msg_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:ellipsize="start"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/msg_hint"
+        android:inputType="textLongMessage|textAutoCorrect|textMultiLine"
+        android:maxLines="15"
+        android:theme="@style/Base.V12.Widget.AppCompat.EditText"
+        android:visibility="gone"/>
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/send_other_options_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_gravity="end|bottom|center"
+        android:visibility="gone"
+        app:fab_progress_showBackground="true"
+        fab:fab_colorNormal="@color/colorAccent"
+        fab:menu_buttonToggleAnimation="@anim/fab_slide_out_to_right"
+        fab:menu_colorNormal="@color/colorAccent"
+        fab:menu_fab_hide_animation="@anim/fab_scale_down"
+        fab:menu_fab_show_animation="@anim/fab_scale_up"
+        fab:menu_fab_size="mini"
+        fab:menu_icon="@drawable/zzz_menu">
+
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/menu_item_audio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/zzz_microphone_dots"
+            android:visibility="gone"
+            fab:fab_colorNormal="@color/backMsg"
+            fab:fab_label="Record Audio"
+            fab:fab_size="mini">
+
+        </com.github.clans.fab.FloatingActionButton>
+
+
+    </com.github.clans.fab.FloatingActionMenu>
+
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/input_holder"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/activity_main_time_margin_bottom"
+        android:text="00:00:00"
+        android:visibility="invisible"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_main_shadow_height"
+        android:layout_above="@+id/input_holder"
+        android:layout_gravity="bottom"
+        android:background="@drawable/background_shadow"/>
+
+    <com.dewarder.holdinglibrary.HoldingButtonLayout
+        android:id="@+id/input_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:hbl_cancel_icon="@drawable/ic_close_black_24dp"
+        app:hbl_color="@color/colorAccent"
+        app:hbl_holding_view="@+id/start_record"
+        app:hbl_icon="@drawable/ic_mic_black_24dp"
+        app:hbl_radius="@dimen/activity_main_holding_button_radius"
+        app:hbl_second_radius="@dimen/activity_main_holding_button_second_radius">
+
+        <LinearLayout
+            android:id="@+id/slide_to_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginEnd="@dimen/activity_main_slide_to_cancel_margin_right"
+            android:layout_marginRight="@dimen/activity_main_slide_to_cancel_margin_right"
+            android:gravity="center_vertical"
+            android:visibility="invisible">
+
+            <ImageView
+                android:layout_width="@dimen/activity_main_slide_to_cancel_icon_size"
+                android:layout_height="@dimen/activity_main_slide_to_cancel_icon_size"
+                android:layout_marginEnd="@dimen/activity_main_slide_to_cancel_icon_margin_right"
+                android:layout_marginRight="@dimen/activity_main_slide_to_cancel_icon_margin_right"
+                android:scaleType="center"
+                android:src="@drawable/ic_keyboard_arrow_left_black_24dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/slide_to_cancel"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:gravity="center"
+            android:minHeight="@dimen/activity_main_input_holder_min_height"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/reply_msg_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_main_input_margin_left"
+                android:layout_marginStart="@dimen/activity_main_input_margin_left"
+                android:layout_weight="1"
+                android:background="@null"
+                android:ellipsize="start"
+                android:ems="10"
+                android:hint="@string/msg_hint"
+                android:inputType="textLongMessage|textAutoCorrect|textMultiLine"
+                android:maxLines="15"
+                android:paddingBottom="@dimen/activity_main_input_padding_vertical"
+                android:paddingTop="@dimen/activity_main_input_padding_vertical"
+                android:textSize="@dimen/activity_main_input_text_size"/>
+
+            <ImageView
+                android:id="@+id/start_record"
+                android:layout_width="@dimen/activity_main_start_record_width"
+                android:layout_height="match_parent"
+                android:scaleType="center"
+                android:src="@drawable/ic_mic_black_24dp"/>
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/menu_item_file"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="attachFile"
+                android:src="@drawable/zzz_attachment"
+                fab:fab_colorNormal="@color/backMsg"
+                fab:fab_label="Attach File"
+                fab:fab_size="mini"/>
+
+            <com.github.clans.fab.FloatingActionMenu
+                android:id="@+id/send_msg_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom|center"
+                android:visibility="gone"
+                fab:menu_backgroundColor="@color/colorAccent"
+                fab:menu_buttonToggleAnimation="@anim/fab_slide_out_to_right"
+                fab:menu_colorNormal="@color/colorAccent"
+                fab:menu_fab_hide_animation="@anim/fab_scale_down"
+                fab:menu_fab_show_animation="@anim/fab_scale_up"
+                fab:menu_fab_size="mini"
+                fab:menu_icon="@drawable/zzz_send"/>
+
+        </LinearLayout>
+
+    </com.dewarder.holdinglibrary.HoldingButtonLayout>
+
+</RelativeLayout>

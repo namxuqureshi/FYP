@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/child_card_group"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10.0dip"
+        android:elevation="16dp"
+        tools:targetApi="lollipop">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10.0dip"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/reply_owner_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@string/title_activity_tag"
+                android:text="Ahmed Butt"
+                android:textAllCaps="true"
+                android:textSize="14.0sp"
+                android:textStyle="normal|bold" />
+            <!--android:textColor="@color/colorPrimaryDark"-->
+
+            <TextView
+                android:id="@+id/reply_main_time"
+                android:layout_width="wrap_content"
+                android:layout_height="25.0dip"
+                android:layout_alignBaseline="@+id/reply_owner_name"
+                android:layout_alignBottom="@+id/reply_owner_name"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="5.0dip"
+                android:fontFamily="@string/title_activity_tag"
+                android:text="@string/_5_am"
+                android:textSize="14.0sp" />
+            <!--android:textColor="@color/colorPrimary"-->
+
+            <TextView
+                android:id="@+id/reply_main_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/reply_owner_name"
+                android:layout_marginEnd="5.0dip"
+                android:layout_marginTop="6.0dip"
+                android:fontFamily="@string/title_activity_tag"
+                android:text="@string/what_is_happening_here"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/reply_main_non_sent"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/reply_main_msg"
+                android:layout_marginEnd="5.0dip"
+                android:background="@drawable/zzz_timer_sand"
+                android:fontFamily="@string/title_activity_tag"
+                android:textSize="12.0sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/reply_main_sent"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/reply_main_msg"
+                android:layout_marginEnd="5.0dip"
+                android:background="@drawable/zzz_check"
+                android:fontFamily="@string/title_activity_tag"
+                android:textSize="12.0sp" />
+
+            <FrameLayout
+                android:id="@+id/frame_audio_reply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/reply_main_msg"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/audio_source_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2.0dip"
+                    android:padding="2.0dip"
+                    android:src="@drawable/zzz_microphone" />
+
+                <ProgressBar
+                    android:id="@+id/audio_progress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="30.0dip"
+                    android:layout_height="30.0dip"
+                    android:max="100"
+                    android:progress="1" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frame_other_reply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/reply_main_msg"
+                android:layout_toEndOf="@+id/frame_audio_reply"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/file_source_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2.0dip"
+                    android:padding="2.0dip"
+                    android:src="@drawable/zzz_file_powerpoint" />
+
+                <ProgressBar
+                    android:id="@+id/other_file_progress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="30.0dip"
+                    android:layout_height="30.0dip"
+                    android:indeterminate="false"
+                    android:max="100"
+                    android:progress="1" />
+            </FrameLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

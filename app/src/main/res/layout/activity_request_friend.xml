@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_request_friend"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/bar_search"
+        android:layout_width="fill_parent"
+        android:layout_height="50.0dip"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+
+        <ImageView
+            android:id="@+id/backBtnImg"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/image_type"
+            android:onClick="onBackPressed"
+            android:padding="5dp"
+            android:src="@drawable/zzz_arrow_left" />
+
+        <android.support.v7.widget.SearchView
+            android:id="@+id/search_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:hapticFeedbackEnabled="true"
+            app:closeIcon="@drawable/zzz_close_circle"
+            app:defaultQueryHint="@string/enter_here"
+            app:goIcon="@drawable/zzz_arrow_right"
+            app:queryBackground="@android:color/transparent"
+            app:queryHint="@string/enter_here"
+            app:searchIcon="@drawable/zzz_account_search" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/search_refresh_list"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/search_list_view"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:dividerHeight="1.0dip"
+                android:hapticFeedbackEnabled="true"
+                android:headerDividersEnabled="true" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <TextView
+            android:id="@+id/empty_view_text_request_friend_list_below"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="@string/swipe_down_to_refresh_empty"
+            android:textAlignment="center"
+            android:textSize="25.0sp"
+            android:textStyle="bold|italic"
+            android:visibility="gone" />
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                                    xmlns:tools="http://schemas.android.com/tools"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    app:cardElevation="40dp">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="450dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:cardElevation="40dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/dg_profile_img"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_gravity="top|center"
+            android:elevation="30dp"
+            android:fadingEdgeLength="20dp"
+            android:src="@drawable/profile_pic_default"
+            app:layout_anchor="@+id/detail_side"
+            tools:targetApi="lollipop"/>
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/c_layout"
+            android:layout_width="320dp"
+            android:layout_height="380dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp">
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/detail_side"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="@color/backMsg"
+                app:cardCornerRadius="40dp"
+                app:cardElevation="30dp"
+                app:cardMaxElevation="50dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/dg_profile_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:fitsSystemWindows="true"
+                        android:gravity="center"
+                        android:soundEffectsEnabled="true"
+                        android:text="Name"
+                        android:textAllCaps="true"
+                        android:textSize="20sp"
+                        android:textStyle="normal|bold"/>
+
+                    <TextView
+                        android:id="@+id/dg_profile_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:fitsSystemWindows="true"
+                        android:gravity="center"
+                        android:soundEffectsEnabled="true"
+                        android:text="Email"
+                        android:textAllCaps="true"
+                        android:textSize="16sp"
+                        android:textStyle="normal|bold"/>
+
+                    <TextView
+                        android:id="@+id/dg_profile_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:fitsSystemWindows="true"
+                        android:gravity="center"
+                        android:soundEffectsEnabled="true"
+                        android:text="Phone"
+                        android:textAllCaps="true"
+                        android:textSize="14sp"
+                        android:textStyle="normal|bold"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/dg_float_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/zzz_check_bookmark"
+                app:elevation="30dp"
+                app:fabSize="normal"
+                app:layout_anchor="@+id/detail_side"
+                app:layout_anchorGravity="bottom|center"/>
+
+        </android.support.design.widget.CoordinatorLayout>
+    </android.support.v7.widget.CardView>
+
+</android.support.v7.widget.CardView>

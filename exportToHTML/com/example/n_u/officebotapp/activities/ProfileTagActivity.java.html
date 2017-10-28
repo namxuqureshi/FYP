@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>ProfileTagActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #2b91af; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,208,208); }
+.s1 { color: rgb(208,208,208); }
+.s2 { color: rgb(208,208,208); }
+.s3 { color: rgb(255,255,0); }
+.s4 { color: rgb(220,120,220); }
+.ls0 { height: 1px; border-width: 0; color: rgb(32,32,48); background-color:rgb(32,32,48)}
+</style>
+</head>
+<BODY BGCOLOR="#101020">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+ProfileTagActivity.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">package </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">n_u</span><span class="s2">.</span><span class="s1">officebotapp</span><span class="s2">.</span><span class="s1">activities</span><span class="s2">;</span><span class="s1"> 
+ 
+</span><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">content</span><span class="s2">.</span><span class="s1">Intent</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">os</span><span class="s2">.</span><span class="s1">Bundle</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">view</span><span class="s2">.</span><span class="s1">View</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">view</span><span class="s2">.</span><span class="s1">View</span><span class="s2">.</span><span class="s1">OnClickListener</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">view</span><span class="s2">.</span><span class="s1">animation</span><span class="s2">.</span><span class="s1">AlphaAnimation</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">android</span><span class="s2">.</span><span class="s1">widget</span><span class="s2">.</span><span class="s1">TextView</span><span class="s2">;</span><span class="s1"> 
+ 
+</span><span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">bumptech</span><span class="s2">.</span><span class="s1">glide</span><span class="s2">.</span><span class="s1">Glide</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">n_u</span><span class="s2">.</span><span class="s1">officebotapp</span><span class="s2">.</span><span class="s1">R</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">n_u</span><span class="s2">.</span><span class="s1">officebotapp</span><span class="s2">.</span><span class="s1">fragments</span><span class="s2">.</span><span class="s1">ProfileFragment</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">n_u</span><span class="s2">.</span><span class="s1">officebotapp</span><span class="s2">.</span><span class="s1">utils</span><span class="s2">.</span><span class="s1">AppLog</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">n_u</span><span class="s2">.</span><span class="s1">officebotapp</span><span class="s2">.</span><span class="s1">utils</span><span class="s2">.</span><span class="s1">OBSession</span><span class="s2">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">n_u</span><span class="s2">.</span><span class="s1">officebotapp</span><span class="s2">.</span><span class="s1">utils</span><span class="s2">.</span><span class="s1">OfficeBotURI</span><span class="s2">;</span><span class="s1"> 
+ 
+</span><span class="s0">import </span><span class="s1">de</span><span class="s2">.</span><span class="s1">hdodenhof</span><span class="s2">.</span><span class="s1">circleimageview</span><span class="s2">.</span><span class="s1">CircleImageView</span><span class="s2">;</span><span class="s1"> 
+ 
+</span><span class="s0">public class </span><span class="s1">ProfileTagActivity 
+        </span><span class="s0">extends </span><span class="s1">NavigationActivity </span><span class="s2">{</span><span class="s1"> 
+ 
+    </span><span class="s0">protected void </span><span class="s1">onCreate</span><span class="s2">(</span><span class="s1">Bundle paramBundle</span><span class="s2">) {</span><span class="s1"> 
+        </span><span class="s0">super</span><span class="s2">.</span><span class="s1">onCreate</span><span class="s2">(</span><span class="s1">paramBundle</span><span class="s2">);</span><span class="s1"> 
+        setContentView</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">layout</span><span class="s2">.</span><span class="s1">activity_nav_profile</span><span class="s2">);</span><span class="s1"> 
+        nav</span><span class="s2">(</span><span class="s1">getString</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">string</span><span class="s2">.</span><span class="s1">profile_activity</span><span class="s2">));</span><span class="s1"> 
+        setUi</span><span class="s2">();</span><span class="s1"> 
+    </span><span class="s2">}</span><span class="s1"> 
+ <hr class="ls0">    </span><span class="s0">private void </span><span class="s1">setUi</span><span class="s2">() {</span><span class="s1"> 
+        Object o </span><span class="s2">= </span><span class="s1">findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">user_name</span><span class="s2">);</span><span class="s1"> 
+        </span><span class="s2">((</span><span class="s1">TextView</span><span class="s2">) </span><span class="s1">o</span><span class="s2">).</span><span class="s1">setText</span><span class="s2">(</span><span class="s1">OBSession</span><span class="s2">.</span><span class="s1">getPreference</span><span class="s2">(</span><span class="s1">getString</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">string</span><span class="s2">.</span><span class="s1">name_key</span><span class="s2">), </span><span class="s0">this</span><span class="s2">));</span><span class="s1"> 
+        </span><span class="s0">if </span><span class="s2">(((</span><span class="s1">TextView</span><span class="s2">) </span><span class="s1">o</span><span class="s2">).</span><span class="s1">getText</span><span class="s2">().</span><span class="s1">length</span><span class="s2">() &gt; </span><span class="s3">8</span><span class="s2">) {</span><span class="s1"> 
+            </span><span class="s2">((</span><span class="s1">TextView</span><span class="s2">) </span><span class="s1">o</span><span class="s2">).</span><span class="s1">setTextSize</span><span class="s2">(</span><span class="s3">2</span><span class="s2">, </span><span class="s3">20.0F</span><span class="s2">);</span><span class="s1"> 
+        </span><span class="s2">}</span><span class="s1"> 
+        CircleImageView cm </span><span class="s2">= (</span><span class="s1">CircleImageView</span><span class="s2">) </span><span class="s1">findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">circleViewProfile</span><span class="s2">);</span><span class="s1"> 
+        cm</span><span class="s2">.</span><span class="s1">startAnimation</span><span class="s2">(</span><span class="s0">new </span><span class="s1">AlphaAnimation</span><span class="s2">(</span><span class="s0">this</span><span class="s2">, </span><span class="s0">null</span><span class="s2">));</span><span class="s1"> 
+        cm</span><span class="s2">.</span><span class="s1">animate</span><span class="s2">();</span><span class="s1"> 
+        cm</span><span class="s2">.</span><span class="s1">setOnClickListener</span><span class="s2">(</span><span class="s0">new </span><span class="s1">OnClickListener</span><span class="s2">() {</span><span class="s1"> 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">onClick</span><span class="s2">(</span><span class="s1">View v</span><span class="s2">) {</span><span class="s1"> 
+                ProfileFragment editNameDialogFragment </span><span class="s2">= </span><span class="s1">ProfileFragment</span><span class="s2">.</span><span class="s1">newInstance</span><span class="s2">(</span><span class="s1">OBSession</span><span class="s2">.</span><span class="s1">getPreference</span><span class="s2">(</span><span class="s1">getString</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">string</span><span class="s2">.</span><span class="s1">name_key</span><span class="s2">)</span><span class="s1"> 
+                        </span><span class="s2">, </span><span class="s1">context</span><span class="s2">)</span><span class="s1"> 
+                        </span><span class="s2">, </span><span class="s1">OBSession</span><span class="s2">.</span><span class="s1">getPreference</span><span class="s2">(</span><span class="s1">getString</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">string</span><span class="s2">.</span><span class="s1">email_key</span><span class="s2">)</span><span class="s1"> 
+                                </span><span class="s2">, </span><span class="s1">context</span><span class="s2">)</span><span class="s1"> 
+                        </span><span class="s2">, </span><span class="s1">OBSession</span><span class="s2">.</span><span class="s1">getPreference</span><span class="s2">(</span><span class="s1">getString</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">string</span><span class="s2">.</span><span class="s1">phone_key</span><span class="s2">)</span><span class="s1"> 
+                                </span><span class="s2">, </span><span class="s1">context</span><span class="s2">)</span><span class="s1"> 
+                        </span><span class="s2">, </span><span class="s1">OBSession</span><span class="s2">.</span><span class="s1">getPreference</span><span class="s2">(</span><span class="s1">getString</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">string</span><span class="s2">.</span><span class="s1">image_src_key</span><span class="s2">)</span><span class="s1"> 
+                                </span><span class="s2">, </span><span class="s1">context</span><span class="s2">));</span><span class="s1"> 
+                editNameDialogFragment</span><span class="s2">.</span><span class="s1">show</span><span class="s2">(</span><span class="s1">getSupportFragmentManager</span><span class="s2">(), </span><span class="s4">&quot;fragment_edit_name&quot;</span><span class="s2">);</span><span class="s1"> 
+                AppLog</span><span class="s2">.</span><span class="s1">setVibrate</span><span class="s2">(</span><span class="s1">context</span><span class="s2">, </span><span class="s1">AppLog</span><span class="s2">.</span><span class="s1">INTENSITY_MIDDLE</span><span class="s2">);</span><span class="s1"> 
+            </span><span class="s2">}</span><span class="s1"> 
+        </span><span class="s2">});</span><span class="s1"> 
+        Glide</span><span class="s2">.</span><span class="s1">with</span><span class="s2">(</span><span class="s1">cm</span><span class="s2">.</span><span class="s1">getContext</span><span class="s2">())</span><span class="s1"> 
+                </span><span class="s2">.</span><span class="s1">load</span><span class="s2">(</span><span class="s1">OfficeBotURI</span><span class="s2">.</span><span class="s1">getFileUrlPreFix</span><span class="s2">() + </span><span class="s1">OBSession 
+                        </span><span class="s2">.</span><span class="s1">getPreference</span><span class="s2">(</span><span class="s1">getString</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">string</span><span class="s2">.</span><span class="s1">image_src_key</span><span class="s2">)</span><span class="s1"> 
+                                </span><span class="s2">, </span><span class="s0">this</span><span class="s2">))</span><span class="s1"> 
+                </span><span class="s2">.</span><span class="s1">placeholder</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">drawable</span><span class="s2">.</span><span class="s1">profile_pic_default</span><span class="s2">)</span><span class="s1"> 
+                </span><span class="s2">.</span><span class="s1">fitCenter</span><span class="s2">().</span><span class="s1">fitCenter</span><span class="s2">().</span><span class="s1">crossFade</span><span class="s2">().</span><span class="s1">animate</span><span class="s2">(</span><span class="s0">new </span><span class="s1">AlphaAnimation</span><span class="s2">(</span><span class="s3">2.0F</span><span class="s2">, -</span><span class="s3">2.0F</span><span class="s2">))</span><span class="s1"> 
+                </span><span class="s2">.</span><span class="s1">into</span><span class="s2">(</span><span class="s1">cm</span><span class="s2">);</span><span class="s1"> 
+        findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">friends</span><span class="s2">).</span><span class="s1">setOnClickListener</span><span class="s2">(</span><span class="s0">new </span><span class="s1">OnClickListener</span><span class="s2">() {</span><span class="s1"> 
+            </span><span class="s0">public void </span><span class="s1">onClick</span><span class="s2">(</span><span class="s1">View vi</span><span class="s2">) {</span><span class="s1"> 
+                Intent v </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Intent</span><span class="s2">(</span><span class="s1">ProfileTagActivity</span><span class="s2">.</span><span class="s0">this</span><span class="s2">, </span><span class="s1">FriendListActivity</span><span class="s2">.</span><span class="s0">class</span><span class="s2">);</span><span class="s1"> 
+                ProfileTagActivity</span><span class="s2">.</span><span class="s0">this</span><span class="s2">.</span><span class="s1">startActivity</span><span class="s2">(</span><span class="s1">v</span><span class="s2">);</span><span class="s1"> 
+                AppLog</span><span class="s2">.</span><span class="s1">setVibrate</span><span class="s2">(</span><span class="s1">context</span><span class="s2">, </span><span class="s1">AppLog</span><span class="s2">.</span><span class="s1">INTENSITY_MIDDLE</span><span class="s2">);</span><span class="s1"> 
+            </span><span class="s2">}</span><span class="s1"> 
+        </span><span class="s2">});</span><span class="s1"> 
+        findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">groups</span><span class="s2">).</span><span class="s1">setOnClickListener</span><span class="s2">(</span><span class="s0">new </span><span class="s1">OnClickListener</span><span class="s2">() {</span><span class="s1"> 
+            </span><span class="s0">public void </span><span class="s1">onClick</span><span class="s2">(</span><span class="s1">View vi</span><span class="s2">) {</span><span class="s1"> 
+                Intent v </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Intent</span><span class="s2">(</span><span class="s1">ProfileTagActivity</span><span class="s2">.</span><span class="s0">this</span><span class="s2">, </span><span class="s1">GroupsActivity</span><span class="s2">.</span><span class="s0">class</span><span class="s2">);</span><span class="s1"> 
+                ProfileTagActivity</span><span class="s2">.</span><span class="s0">this</span><span class="s2">.</span><span class="s1">startActivity</span><span class="s2">(</span><span class="s1">v</span><span class="s2">);</span><span class="s1"> 
+                AppLog</span><span class="s2">.</span><span class="s1">setVibrate</span><span class="s2">(</span><span class="s1">context</span><span class="s2">, </span><span class="s1">AppLog</span><span class="s2">.</span><span class="s1">INTENSITY_MIDDLE</span><span class="s2">);</span><span class="s1"> 
+            </span><span class="s2">}</span><span class="s1"> 
+        </span><span class="s2">});</span><span class="s1"> 
+        findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">tags</span><span class="s2">).</span><span class="s1">setOnClickListener</span><span class="s2">(</span><span class="s0">new </span><span class="s1">OnClickListener</span><span class="s2">() {</span><span class="s1"> 
+            </span><span class="s0">public void </span><span class="s1">onClick</span><span class="s2">(</span><span class="s1">View vi</span><span class="s2">) {</span><span class="s1"> 
+                Intent v </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Intent</span><span class="s2">(</span><span class="s1">ProfileTagActivity</span><span class="s2">.</span><span class="s0">this</span><span class="s2">, </span><span class="s1">TagActivity</span><span class="s2">.</span><span class="s0">class</span><span class="s2">);</span><span class="s1"> 
+                ProfileTagActivity</span><span class="s2">.</span><span class="s0">this</span><span class="s2">.</span><span class="s1">startActivity</span><span class="s2">(</span><span class="s1">v</span><span class="s2">);</span><span class="s1"> 
+                AppLog</span><span class="s2">.</span><span class="s1">setVibrate</span><span class="s2">(</span><span class="s1">context</span><span class="s2">, </span><span class="s1">AppLog</span><span class="s2">.</span><span class="s1">INTENSITY_MIDDLE</span><span class="s2">);</span><span class="s1"> 
+            </span><span class="s2">}</span><span class="s1"> 
+        </span><span class="s2">});</span><span class="s1"> 
+    </span><span class="s2">}</span><span class="s1"> 
+ 
+</span><span class="s2">}</span><span class="s1"> 
+ 
+</span></pre>
+</body>
+</html>

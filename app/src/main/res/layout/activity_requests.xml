@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/content_main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/request_refresh_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="false"
+        android:layout_marginTop="50.0dip">
+
+        <ListView
+            android:id="@+id/requests_list"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="false"
+            android:dividerHeight="1.0dip"
+            android:padding="5.0dip" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:id="@+id/empty_view_text_request_below"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="@string/swipe_down_to_refresh_empty"
+        android:textAlignment="center"
+        android:textSize="25.0sp"
+        android:textStyle="bold|italic"
+        android:visibility="gone" />
+</RelativeLayout>

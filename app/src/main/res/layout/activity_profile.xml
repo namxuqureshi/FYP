@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_profile"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:keepScreenOn="true">
+
+    <RelativeLayout
+        android:id="@+id/rl1"
+        android:layout_width="0.0dip"
+        android:layout_height="175.0dip"
+        android:layout_marginEnd="8.0dip"
+        android:layout_marginLeft="8.0dip"
+        android:layout_marginRight="8.0dip"
+        android:layout_marginStart="8.0dip"
+        android:layout_marginTop="63.0dip"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:paddingBottom="10.0dip"
+            android:text="@string/name"
+            android:textAllCaps="true"
+            android:textSize="30.0sp"
+            android:textStyle="bold" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleViewProfile"
+            android:layout_width="150.0dip"
+            android:layout_height="150.0dip"
+            android:layout_above="@+id/user_name"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/profile_pic_default" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/tags"
+        android:layout_width="150.0dip"
+        android:layout_height="150.0dip"
+        android:layout_marginBottom="13.0dip"
+        android:background="@drawable/round_button"
+        android:hapticFeedbackEnabled="true"
+        android:includeFontPadding="true"
+        android:linksClickable="false"
+        android:longClickable="false"
+        android:padding="25.0dip"
+        android:paddingBottom="20.0dip"
+        android:paddingTop="20.0dip"
+        android:saveEnabled="false"
+        android:scaleType="fitCenter"
+        android:scrollHorizontally="false"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:scrollbarAlwaysDrawVerticalTrack="false"
+        android:soundEffectsEnabled="true"
+        android:text="@string/tags"
+        android:textAlignment="center"
+        android:textSize="25.0sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hapticFeedbackEnabled="true"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hapticFeedbackEnabled="true"
+                android:src="@drawable/nfc_android" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.05"
+                android:text="@string/tags"
+                android:textSize="25.0sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/groups"
+        android:layout_width="150.0dip"
+        android:layout_height="150.0dip"
+        android:background="@drawable/round_button"
+        android:hapticFeedbackEnabled="true"
+        android:includeFontPadding="true"
+        android:linksClickable="false"
+        android:longClickable="false"
+        android:maxLines="1"
+        android:padding="25.0dip"
+        android:paddingBottom="20.0dip"
+        android:paddingTop="20.0dip"
+        android:saveEnabled="false"
+        android:scrollHorizontally="false"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:scrollbarAlwaysDrawVerticalTrack="false"
+        android:soundEffectsEnabled="true"
+        android:text="@string/group_activity"
+        android:textAlignment="center"
+        android:textSize="25.0sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tags"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/friends">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hapticFeedbackEnabled="true"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hapticFeedbackEnabled="true"
+                android:src="@drawable/group" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.05"
+                android:text="@string/groups"
+                android:textSize="25.0sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/friends"
+        android:layout_width="150.0dip"
+        android:layout_height="150.0dip"
+        android:layout_marginTop="16.0dip"
+        android:background="@drawable/round_button"
+        android:hapticFeedbackEnabled="true"
+        android:includeFontPadding="true"
+        android:lineSpacingExtra="18.0dip"
+        android:maxLines="1"
+        android:padding="25.0dip"
+        android:paddingBottom="20.0dip"
+        android:paddingTop="20.0dip"
+        android:saveEnabled="false"
+        android:scrollHorizontally="false"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:scrollbarAlwaysDrawVerticalTrack="false"
+        android:soundEffectsEnabled="false"
+        android:text="@string/friend_group_element"
+        android:textAlignment="center"
+        android:textSize="24.0sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tags"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl1"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hapticFeedbackEnabled="true"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hapticFeedbackEnabled="true"
+                android:src="@drawable/friend" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.2"
+                android:text="@string/friend_group_element"
+                android:textSize="25.0sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </FrameLayout>
+</android.support.constraint.ConstraintLayout>

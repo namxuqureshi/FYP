@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/tag_refresh_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+
+        <ListView
+            android:id="@+id/list_note"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:divider="@null"
+            android:dividerHeight="2.0dip" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/fab_margin"
+        app:fab_label="@string/add_new_tag_activity"
+        app:fab_showShadow="true"
+        app:srcCompat="@drawable/zzz_nfc" />
+
+    <TextView
+        android:id="@+id/empty_view_text_lv_below"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="@string/swipe_down_to_refresh_empty"
+        android:textAlignment="center"
+        android:textSize="25.0sp"
+        android:textStyle="bold|italic"
+        android:visibility="gone" />
+</RelativeLayout>
